@@ -6,6 +6,5 @@ public class Main {
         Student s = new Student();
         s.studentGirls();
         s.studentName("Peter");
-
     }
 }
