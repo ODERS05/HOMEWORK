@@ -3,6 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("Hello world");
 	// create table route(
         //	id integer primary key,
         //	num_of_route varchar (50)not null unique ,
