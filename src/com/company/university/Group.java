@@ -27,12 +27,13 @@ public class Group {
     }
     public void searchByName(String name){
         for (Student student: students) {
-            if(student.getName() == name){
+            if(student.getName().equals(name)){
                 System.out.println(student);
+                break;
             }else {
                 System.out.println("Такого нет");
+                break;
             }
-            break;
         }
     }
     public void showAllStudents(){
