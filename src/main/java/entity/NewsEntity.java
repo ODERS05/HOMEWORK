@@ -2,43 +2,29 @@ package entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "news")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Builder
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class NewsEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class NewsEntity extends BaseEntity{
 
-    @Column(name = "news_headline", nullable = false)
-    String newsHeadline;
+    @Column(name = "news_header")
+    private String newsHeader;
 
-    @Column(name = "news_text", nullable = false)
-    String newsText;
-    @OneToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @Column(name = "news_text")
+    private String newsText;
+
+    @Column(name = "post_time")
+    private LocalDateTime postTime;
+
+    @ManyToOne
+    @JoinColumn(name = "news_category_id")
     NewsCategoryEntity newsCategory;
-
-    @Column(name = "time_post")
-    LocalDateTime localDateTime;
-
-    @Override
-    public String toString() {
-        return "News{" +
-                "id=" + id +
-                ", newsHeadline='" + newsHeadline + '\'' +
-                ", newsText='" + newsText + '\'' +
-                ", newsCategory=" + newsCategory +
-                ", localDateTime=" + localDateTime +
-                '}';
-    }
 }
