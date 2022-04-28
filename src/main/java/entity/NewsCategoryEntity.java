@@ -13,6 +13,8 @@ import lombok.*;
 @ToString
 @Builder
 public class NewsCategoryEntity extends BaseEntity{
+
     @Column(name = "name")
-    private String name;
+    @Enumerated(value = EnumType.STRING)
+    private Category name;
 }
